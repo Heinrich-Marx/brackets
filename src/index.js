@@ -7,8 +7,12 @@ module.exports = function check(str, bracketsConfig) {
   let arr = [];
   let elem;
   for (let i = 0; i <bracketsConfig.length; i++) {
+    if (bracketsConfig[i][0] == bracketsConfig[i][1]) {
+      bracketsConfig[i][0] = bracketsConfig[i][0] + '!';
+    }
     open.push(bracketsConfig[i][0]);
     close[bracketsConfig[i][1]] = bracketsConfig[i][0];
+
   }
   for (let j = 0; j<str.length; j++) {
       sumbol = str[j];
@@ -24,9 +28,9 @@ module.exports = function check(str, bracketsConfig) {
         if (close[sumbol] == elem) {
           arr.pop();
         }
-        else {
-          return false;
-        }
+    //    else {
+      //    return false;
+        //}
       }  
   }
     if (arr.length == 0) 
@@ -37,7 +41,7 @@ module.exports = function check(str, bracketsConfig) {
 }
 
 /*
-exports = function check(str, bracketsConfig) {
+function expor(str, bracketsConfig) {
 
   let open = [];
   let close = {};
@@ -45,6 +49,9 @@ exports = function check(str, bracketsConfig) {
   let arr = [];
   let elem;
   for (let i = 0; i <bracketsConfig.length; i++) {
+        if (bracketsConfig[i][0] == bracketsConfig[i][1]) {
+      bracketsConfig[i][1] = bracketsConfig[i][1] + bracketsConfig[i][1]
+    }
     open.push(bracketsConfig[i][0]);
     close[bracketsConfig[i][1]] = bracketsConfig[i][0];
   }
@@ -70,6 +77,10 @@ exports = function check(str, bracketsConfig) {
   return arr.length == 0;
 }
 
-export('111115611111111222288888822225577877778775555666677777777776622222', [['1', '2'], ['3', '4'], ['5', '6'], ['7', '7'], ['8', '8']])
+expor('111115611111111222288888822225577877778775555666677777777776622222', [['1', '2'], ['3', '4'], ['5', '6'], ['7', '7'], ['8', '8']])
 
 */
+
+
+let aq = ['heelo'];
+console.log(aq.length)
